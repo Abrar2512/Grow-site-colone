@@ -1,0 +1,1132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  </head>
+  <body>
+    <div class="container1">
+      <div style="margin-right: 160px;">
+        <img
+          src="https://storage.googleapis.com/groww-assets/web-assets/img/website-logo/logo-dark-groww.svg"
+          alt=""
+          width="150em"
+          
+        />
+      </div>
+      <div class="form-group">
+        
+        <input type="text" placeholder="What are you looking today?" />
+      </div>
+      <div><button class="btn">Login/Register</button></div>
+    </div>
+    <div class="content" style="display: flex; ">
+      
+               
+          
+           
+            <div class="abrar" style="margin-left: 6em; width: 60%;">
+             
+              <div class="breadcrumb" >
+                <a class="breadcrumb-link" href="https://groww.in/">
+                  <span class="breadcrumb-text">Home</span>
+                </a>
+                <span class="breadcrumb-separator">&gt;</span>
+                <a class="breadcrumb-link" href="https://groww.in/calculators">
+                  <span class="breadcrumb-text">Calculators</span>
+                </a>
+                <span class="breadcrumb-separator">&gt;</span>
+                <span class="breadcrumb-last">SIP Calculator</span>
+                <span class="breadcrumb-share">
+                  <i class="bi bi-share-fill"></i> SHARE
+                </span>
+              </div>
+              
+              
+              
+            
+              <div class="containerLeft">
+                
+                <h1 class="header">SIP Calculator</h1>
+                <div class="mainContainer">
+                    <div class="tabSelection">
+                        <div class="firstTab">
+                            <div>SIP</div>
+                        </div>
+                        <div class="secondTab">
+                            <div>Lumpsum</div>
+                        </div>
+                       </div>
+                       <div class="mainContainerInner">
+                  <div class="leftSection">
+                   
+                    <div class="leftSectionInnner" style="margin-top: -2em;">
+                      <div class="leftSectionInnnerRow">
+                        <div class="leftSectionInnnerRowHeader">
+                          <div class="leftSectionInnnerColText1">Monthly Investment</div>
+                          <div class="leftSectionInnnerColText2">₹ <span id="demo"></span></div>
+                        </div>
+                        <div class="slideContainer">
+                          <input  type="range" class="slider" min="0" max="100000" id="myRange" >
+                        </div>
+                      </div>
+                   
+                    
+                      <div class="leftSectionInnnerRow">
+                        <div class="leftSectionInnnerRowHeader">
+                          <div class="leftSectionInnnerColText1">
+                            Expected return rate (p.a)
+                          </div>
+                          <div class="leftSectionInnnerColText2"><span id="demo1"></span>%</div>
+                        </div>
+                        <div class="slideContainer">
+                          <input  type="range" class="slider1" min="0" max="30" id="myRange1">
+                        </div>
+                      </div>
+                   
+                    
+                      <div class="leftSectionInnnerRow">
+                        <div class="leftSectionInnnerRowHeader">
+                          <div class="leftSectionInnnerColText1">Time Period</div>
+                          <div class="leftSectionInnnerColText2"><span id="demo2"></span>yr</div>
+                        </div>
+                        <div class="slideContainer">
+                          <input type="range" class="slider2" min="0" max="40" id="myRange2">
+                        </div>
+                      
+                      <div class="leftSectionInnnerLast" >
+                        <div class="leftSectionInnnerLastRow" style="margin-top: 5em;">
+                          <div class="leftSectionInnnerLastRowText1">invested amount</div>
+                          <div class="leftSectionInnnerLastRowText2"id="investedAmount">₹30,000</div>
+                        </div>
+                      </div>
+                      <div class="leftSectionInnnerLast">
+                        <div class="leftSectionInnnerLastRow">
+                          <div class="leftSectionInnnerLastRowText1">Est Returns</div>
+                          <div class="leftSectionInnnerLastRowText2"id="estReturns">₹30,000</div>
+                        </div>
+                      </div>
+                      <div class="leftSectionInnnerLast">
+                        <div class="leftSectionInnnerLastRow">
+                          <div class="leftSectionInnnerLastRowText1">Total value</div>
+                          <div class="leftSectionInnnerLastRowText2"id="totalValue">₹30,000</div>
+                        </div>
+                      </div>
+                    </div>
+                    </div>
+                  </div>
+                  <div class="rightSection">
+                    <div class="rightSectionFirstPart">
+                        <div class="rightSectionFirstPartInner">
+                            <div class="first-circle"></div>
+                            <div class="first-circle-text"> invested amount</div>
+                        </div>
+                        <div class="rightSectionFirstPartInner">
+                            <div class="second-circle"></div>
+                            <div class="first-circle-text"> Est Returns</div>
+                        </div>
+                    </div>
+                    
+                    
+                   <!-- <div class="rightSectionSecondPart">
+   <canvas class="pieChart" id="pieChart"></canvas>
+                  </div> -->
+                  <div class="chart-container" style="height: 15rem; width: 15rem; margin-top: 2em; margin-right: 10px;">
+                    <canvas id="pieChart"></canvas>
+                  </div>
+                 
+            <div>
+              <button class="btn" style="margin-top:10.5em; margin-left: 35px;">INVEST NOW</button>
+            </div>
+                  </div>
+                </div>
+                </div>
+          </div>
+                <h1 style="margin-top: 50px;">SIP Calculator – Systematic Investment Plan Calculator</h1>
+                <br>
+                <p>
+                  Prospective investors can think that SIPs and mutual funds are the same.
+                  However, SIPs are merely a method of investing in mutual funds, the
+                  other method being a lump sum. A SIP calculator is a tool that helps you
+                  determine the returns you can avail when parking your funds in such
+                  investment tools. Systematic Investment Plan or <span style="color: #00d09c; cursor: pointer;">SIP</span> is a process of
+                  investing a fixed sum of money in mutual funds at regular intervals.
+                  SIPs usually allow you to invest weekly, quarterly, or monthly.
+                </p>
+                <br />
+                <h1>What is a SIP Calculator?</h1>
+                <br>
+                <p>
+                  A SIP calculator is a simple tool that allows individuals to get an idea
+                  of the returns on their <span style="color: #00d09c; cursor: pointer;">mutual fund</span> investments made through SIP. SIP
+                  investments in mutual funds have become one of the most popular
+                  investment options for millennials lately.
+                </p>
+                <br />
+                <p>
+                  These mutual fund sip calculators are designed to give potential
+                  investors an estimate on their mutual fund investments. However, the
+                  actual returns offered by a mutual fund scheme varies depending on
+                  various factors. The SIP calculator does not provide clarification for
+                  the exit load and expense ratio (if any).
+                </p>
+                <br />
+                <p>
+                  This calculator will calculate the wealth gain and expected returns for
+                  your monthly SIP investment. Indeed, you get a rough estimate on the
+                  maturity amount for any of your monthly SIP, based on a projected annual
+                  return rate.
+                </p>
+                <br /><br />
+                <h1>How can a SIP return calculator help you?</h1>
+                <br>
+                <p>
+                  SIPs are a more lucrative mode of investing funds compared to a <span style="color: #00d09c; cursor: pointer;"> lump sum</span>
+                  amount according to several mutual fund experts. <br />
+                  It helps you become financially disciplined and create a habit of
+                  savings that can benefit you in the future.
+                </p>
+                <br />
+                <br />
+                <p>
+                  A SIP calculator online is a beneficial tool, which shows the estimated
+                  returns you will earn after the investment tenure.
+                </p>
+                <br />
+                <br />
+                <p>Few of the benefits of SIP calculators include –</p>
+                <br /><br />
+                <ol>
+                  <li>Assists you to determine the amount you want to invest in.</li>
+                  <br>
+                  <li>Tells you the total amount you have invested.</li>
+                  <br>
+                  <li>Gives an estimated value of the returns.</li>
+                </ol>
+                <br />
+                <br />
+                <h1>How do SIP calculators work?</h1>
+                <br /><br />
+                <p>A SIP plan calculator works on the following formula –</p>
+                <br /><br />
+                <p>M = P × ({[1 + i]^n – 1} / i) × (1 + i).</p>
+                <br /><br />
+                <p>In the above formula –</p>
+                <br /><br />
+                <ul>
+                  <li>M is the amount you receive upon maturity.</li>
+                  <br>
+                  <li>P is the amount you invest at regular intervals.</li>
+                  <br>
+                  <li>n is the number of payments you have made.</li>
+                  <br>
+                  <li>i is the periodic rate of interest.</li>
+                </ul>
+                <br /><br />
+                <p>
+                  Take for example you want to invest Rs. 1,000 per month for 12 months at
+                  a periodic rate of interest of 12%.
+                </p>
+                <br /><br />
+                <p>Then the monthly rate of return will be 12%/12 = 1/100 = 0.01.</p>
+                <br /><br />
+                <p>
+                  Hence, M = 1,000X ({[1 + 0.01]^{12} – 1} / 0.01) x (1 + 0.01), which
+                  gives Rs 12,809 approximately in a year.
+                </p>
+                <br /><br />
+                <p>
+                  The rate of interest on a SIP will differ as per market conditions. It
+                  may increase or decrease, which will change the estimated returns.
+                </p>
+                <br /><br />
+                <h1>How to use Groww’s systematic investment plan calculator?</h1>
+                <br /><br />
+                <p>
+                  You can use the SIP amount calculator from Groww within a few clicks.
+                </p>
+                <br /><br />
+                <p>
+                  Just enter the monthly invested amount (the amount for which you have
+                  started the SIP), <br />
+                  the number of years for which you want to stay invested, and the
+                  expected rate of return.
+                </p>
+                <br /><br />
+                <p>
+                  As soon as you input the value, the calculator will show you the
+                  estimated amount you can avail after your investment tenure is complete.
+                </p>
+                <br /><br />
+                <h1>Advantages of using Groww systematic investment plan calculator</h1>
+                <br /><br />
+                <p>
+                  Groww offers the best SIP calculator, which provides the following
+                  advantages –
+                </p>
+                <ul>
+                  <li>Plan your investment based on the amount and tenure</li>
+                  <br />
+                  <li>
+                    It helps you compute an estimation of the total value of investments
+                    at the end of your SIP tenure.
+                  </li>
+                  <br />
+                  <li>
+                    Shows accurate results and helps you save time required during a
+                    manual calculation.
+                  </li>
+                </ul>
+                <br /><br />
+                <p>
+                  A systematic investment plan calculator ensures that your savings
+                  portfolio is as per your requirements and financial needs.
+                </p>
+                <br /><br />
+             
+                <table id="tablepress-21-no-2" class="tablepress tablepress-id-21" style="width: 100%;">
+                  <thead>
+                    <tr class="row-1">
+                      <th class="column-1">&nbsp;</th>
+                      <th class="column-2" colspan="2">MORE CALCULATORS</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="row-2" >
+                      <td class="column-1">
+                        <a
+                          href="https://groww.in/calculators/personal-loan-emi-calculator"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          >Personal Loan EMI <br> Calculator</a
+                        >
+                      </td>
+                      <td class="column-2">
+                        <a
+                          href="https://groww.in/calculators/car-loan-emi-calculator/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          >Car Loan EMI Calculator</a
+                        >
+                      </td>
+                      <td class="column-3">
+                        <a
+                          href="https://groww.in/calculators/home-loan-emi-calculator/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          >Home Loan EMI Calculator</a
+                        >
+                      </td>
+                    </tr>
+                    <tr class="row-3" style="background-color: #f2f2f2;">
+                      <td class="column-1">
+                        <a
+                          href="https://groww.in/calculators/interest-rate-calculator"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          >Interest Rate Calculator</a
+                        >
+                      </td>
+                      <td class="column-2">
+                        <a
+                          href="https://groww.in/calculators/simple-interest-calculator/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          >Simple Interest Calculator</a
+                        >
+                      </td>
+                      <td class="column-3">
+                        <a
+                          href="https://groww.in/calculators/compound-interest-calculator/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          >Compound Interest Calculator</a
+                        >
+                      </td>
+                    </tr>
+                    <tr class="row-4">
+                      <td class="column-1">
+                        <a
+                          href="https://groww.in/calculators/sbi-emi-calculator/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          >SBI EMI Calculator</a
+                        >
+                      </td>
+                      <td class="column-2">
+                        <a
+                          href="https://groww.in/calculators/sbi-personal-loan-emi-calculator/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          >SBI Personal Loan EMI <br> Calculator</a
+                        >
+                      </td>
+                      <td class="column-3">
+                        <a
+                          href="https://groww.in/calculators/sbi-car-loan-emi-calculator/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          >SBI Car Loan EMI Calculator</a
+                        >
+                      </td>
+                    </tr>
+                    <tr class="row-5"  style="background-color: #f2f2f2;">
+                      <td class="column-1">
+                        <a
+                          href="https://groww.in/calculators/sbi-home-loan-emi-calculator/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          >SBI Home Loan EMI Calculator</a
+                        >
+                      </td>
+                      <td class="column-2">
+                        <a
+                          href="https://groww.in/calculators/hdfc-loan-emi-calculator"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          >HDFC Loan EMI Calculator</a
+                        >
+                      </td>
+                      <td class="column-3">
+                        <a
+                          href="https://groww.in/calculators/hdfc-personal-loan-emi-calculator"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          >HDFC Personal Loan EMI Calculator</a
+                        >
+                      </td>
+                    </tr>
+                    <tr class="row-6">
+                      <td class="column-1">
+                        <a
+                          href="https://groww.in/calculators/hdfc-car-loan-emi-calculator/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          >HDFC Car Loan EMI <br>  Calculator</a
+                        >
+                      </td>
+                      <td class="column-2">
+                        <a
+                          href="https://groww.in/calculators/hdfc-home-loan-emi-calculator/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          >HDFC Home Loan EMI <br> Calculator</a
+                        >
+                      </td>
+                      <td class="column-3">
+                        <a
+                          href="https://groww.in/calculators/icici-emi-calculator/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          >ICICI EMI Loan Calculator</a
+                        >
+                      </td>
+                    </tr>
+                    <tr class="row-7"  style="background-color: #f2f2f2;">
+                      <td class="column-1">
+                        <a
+                          href="https://groww.in/calculators/icici-personal-loan-emi-calculator/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          >ICICI Personal Loan EMI Calculator</a
+                        >
+                      </td>
+                      <td class="column-2">
+                        <a
+                          href="https://groww.in/calculators/icici-car-loan-emi-calculator/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          >ICICI Car Loan EMI Calculator</a
+                        >
+                      </td>
+                      <td class="column-3">
+                        <a
+                          href="https://groww.in/calculators/icici-home-loan-emi-calculator/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          >ICICI Home Loan EMI Calculator</a
+                        >
+                      </td>
+                    </tr>
+                    <tr class="row-8">
+                      <td class="column-1">
+                        <a
+                          href="https://groww.in/calculators/axis-bank-emi-calculator/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          >Axis Bank EMI Calculator</a
+                        >
+                      </td>
+                      <td class="column-2">
+                        <a
+                          href="https://groww.in/calculators/axis-bank-home-loan-emi-calculator/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          >Axis Bank Home Loan EMI Calculator</a
+                        >
+                      </td>
+                      <td class="column-3">&nbsp;</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <br /><br />
+                <h1>SIP Calculator - FAQs</h1>
+                <br /><br />
+                <div class="valign-wrapper vspace-between">
+                  <div class="collapsible-header">
+                    <h3 class="ac11Title fw400 faq567Ques fs16">
+                      How much can I invest in a SIP?
+                    </h3>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      height="20"
+                      width="20"
+                      class="ac11Icon absolute-center ac11collapsibleIcon"
+                    >
+                      <path d="M0 0h24v24H0V0z" fill="none"></path>
+                      <path
+                        d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
+                      ></path>
+                    </svg>
+                  </div>
+                  <div class="collapsible-content">
+                    <p>
+                      There is no limit to the amount you can invest in a SIP. The minimum
+                      amount that you can invest is Rs. 500 per month.
+                    </p>
+                  </div>
+                  <div class="hr-div">
+                    <hr />
+                  </div>
+                </div>
+                <div class="valign-wrapper vspace-between">
+                  <div class="collapsible-header">
+                    <h3 class="ac11Title fw400 faq567Ques fs16">
+                      Are SIPs similar to mutual funds?
+                    </h3>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      height="20"
+                      width="20"
+                      class="ac11Icon absolute-center ac11collapsibleIcon"
+                    >
+                      <path d="M0 0h24v24H0V0z" fill="none"></path>
+                      <path
+                        d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
+                      ></path>
+                    </svg>
+                  </div>
+                  <div class="collapsible-content">
+                    <p>
+                      People often tend to think of SIP as either mutual funds or
+                      different than a mutual fund. The fact is that SIP is just a style
+                      of investment and not a fund/scheme or a stock/investment avenue. It
+                      is an investment vehicle to invest periodically in a fund/scheme of
+                      your choice.
+                    </p>
+                  </div>
+                  <div class="hr-div">
+                    <hr />
+                  </div>
+                </div>
+                <div class="valign-wrapper vspace-between">
+                  <div class="collapsible-header">
+                    <h3 class="ac11Title fw400 faq567Ques fs16">
+                      Can I modify my SIP amount?
+                    </h3>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      height="20"
+                      width="20"
+                      class="ac11Icon absolute-center ac11collapsibleIcon"
+                    >
+                      <path d="M0 0h24v24H0V0z" fill="none"></path>
+                      <path
+                        d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
+                      ></path>
+                    </svg>
+                  </div>
+                  <div class="collapsible-content">
+                    <p>
+                      Yes, you can anytime check your returns with SIP investment
+                      calculator and increase or decrease the SIP amount
+                    </p>
+                  </div>
+                  <div class="hr-div">
+                    <hr />
+                  </div>
+                </div>
+                <div class="valign-wrapper vspace-between">
+                  <div class="collapsible-header">
+                    <h3 class="ac11Title fw400 faq567Ques fs16">
+                      Do SIP allows only equity mutual funds investments?
+                    </h3>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      height="20"
+                      width="20"
+                      class="ac11Icon absolute-center ac11collapsibleIcon"
+                    >
+                      <path d="M0 0h24v24H0V0z" fill="none"></path>
+                      <path
+                        d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
+                      ></path>
+                    </svg>
+                  </div>
+                  <div class="collapsible-content">
+                    <p>No, you can invest in debt and hybrid mutual funds through SIP.</p>
+                  </div>
+                  <div class="hr-div">
+                    <hr />
+                  </div>
+                </div>
+                <div class="valign-wrapper vspace-between">
+                  <div class="collapsible-header">
+                    <h3 class="ac11Title fw400 faq567Ques fs16">
+                      What are the types of SIPs available?
+                    </h3>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      height="20"
+                      width="20"
+                      class="ac11Icon absolute-center ac11collapsibleIcon"
+                    >
+                      <path d="M0 0h24v24H0V0z" fill="none"></path>
+                      <path
+                        d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
+                      ></path>
+                    </svg>
+                  </div>
+                  <div class="collapsible-content">
+                    <p>Different types of SIPs are available in the market like –</p>
+                    <br />
+                    <ul>
+                      <li>
+                        Step-up or top-up SIP: A step-up or top-up SIP enables you to
+                        increase the investment amount automatically at specified
+                        intervals at a particular amount or percentage.
+                      </li>
+                      <br />
+                      <li>
+                        Perpetual SIP: A perpetual SIP enables you to keep investing as
+                        long as you wish to without any end date.
+                      </li>
+                      <br />
+                      <li>
+                        Trigger SIP: A trigger SIP lets you start investing during a
+                        specific index level, NAV, date, or event.
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="hr-div">
+                    <hr />
+                  </div>
+                </div>
+             
+                <div class="valign-wrapper vspace-between">
+                  <div class="collapsible-header">
+                    <h3 class="ac11Title fw400 faq567Ques fs16">Can I renew a SIP?</h3>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      height="20"
+                      width="20"
+                      class="ac11Icon absolute-center ac11collapsibleIcon"
+                    >
+                      <path d="M0 0h24v24H0V0z" fill="none"></path>
+                      <path
+                        d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
+                      ></path>
+                    </svg>
+                  </div>
+                  <div class="collapsible-content">
+                    <p>
+                      Yes, you can renew a SIP automatically. Companies also give you the
+                      option to cancel this auto-renew feature.
+                    </p>
+                  </div>
+                  <div class="hr-div">
+                    <hr />
+                  </div>
+                </div>
+                <div class="valign-wrapper vspace-between">
+                  <div class="collapsible-header">
+                    <h3 class="ac11Title fw400 faq567Ques fs16">
+                      Can I pause my investments in a SIP?
+                    </h3>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      height="20"
+                      width="20"
+                      class="ac11Icon absolute-center ac11collapsibleIcon"
+                    >
+                      <path d="M0 0h24v24H0V0z" fill="none"></path>
+                      <path
+                        d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
+                      ></path>
+                    </svg>
+                  </div>
+                  <div class="collapsible-content">
+                    <p>
+                      Yes, mutual fund companies also provide the option of pausing your
+                      SIP investments up for a specified period.
+                    </p>
+                  </div>
+                  <div class="hr-div">
+                    <hr />
+                  </div>
+                </div>
+                <div class="valign-wrapper vspace-between">
+                  <div class="collapsible-header">
+                    <h3 class="ac11Title fw400 faq567Ques fs16">Can I renew a SIP?</h3>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      height="20"
+                      width="20"
+                      class="ac11Icon absolute-center ac11collapsibleIcon"
+                    >
+                      <path d="M0 0h24v24H0V0z" fill="none"></path>
+                      <path
+                        d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
+                      ></path>
+                    </svg>
+                  </div>
+                  <div class="collapsible-content">
+                    <p>
+                      Yes, you can renew a SIP automatically. Companies also give you the
+                      option to cancel this auto-renew feature.
+                    </p>
+                  </div>
+                  <div class="hr-div">
+                    <hr />
+                  </div>
+                </div>
+              </div>
+              <div >
+             </div>
+             <div style="margin-top: 150px;">
+               
+                <div class="scc87MainDiv center-align" style="margin-left: 12px;">
+                    <div class="lazyload-wrapper">
+                      <img
+                        class=""
+                        src="https://assets-netstorage.groww.in/web-assets/billion_groww_desktop/prod/_next/static/media/defaultSidebar.b40891fd.svg"
+                        width="130"
+                        height="87"
+                        alt="sidebar cta image"
+                        loading="lazy"
+                      />
+                    </div>
+                    <div class="scc87Heading fs20">
+                      Invest the way you want
+                    </div>
+                    <div class="scc87SubHeading fs14 clrSubText">
+                      Find the collection of mutual funds with the highest returns in the
+                      past 3 years
+                    </div>
+                    <div class="" href="/mutual-funds">
+                      <div class="">
+                        <div class="btn51Btn btn51RipplePrimary btn51Primary">
+                          <div class="absolute-center btn51ParentDimension">
+                            <span class="absolute-center" style="padding: 0px 25px"
+                              ><span href="https://groww.in/products">EXPLORE PRODUCTS</span></span
+                            >
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+              
+        <br>
+            
+                <div style="margin-top: -17px;">
+                    <div class="side13ParentDiv" >
+                        <div class="ss918SidebarDiv">
+                          <h4 class="clrText ss918Element ss918Link" style="color:#44475b ; font-family: 'Roboto', system-ui;">Popular Calculators</h4>
+                          <p class="cur-po clrText ss918Element ss918Link">SIP Calculator</p>
+                          <p class="cur-po clrText ss918Element ss918Link">
+                            Lumpsum Calculator
+                          </p>
+                          <p class="cur-po clrText ss918Element ss918Link">SWP Calculator</p>
+                          <p class="cur-po clrText ss918Element ss918Link">
+                            Mutual Fund Returns Calculator
+                          </p>
+                          <p class="cur-po clrText ss918Element ss918Link">
+                            Sukanya Samriddhi Yojana Calculator
+                          </p>
+                          <p class="cur-po clrText ss918Element ss918Link">PPF Calculator</p>
+                          <p class="cur-po clrText ss918Element ss918Link">EPF Calculator</p>
+                          <p class="cur-po clrText ss918Element ss918Link">FD Calculator</p>
+                          <p class="cur-po clrText ss918Element ss918Link">RD Calculator</p>
+                          <p class="cur-po clrText ss918Element ss918Link">EMI Calculator</p>
+                          <p class="cur-po clrText ss918Element ss918Link">
+                            Income Tax Calculator
+                          </p>
+                        </div>
+                      </div>
+                 
+              
+             
+                  
+                      <div class="side13ParentDiv" >
+                          <div class="ss918SidebarDiv" style="margin-top: -39px;">
+                           
+                            <h4 class="clrText ss918Element ss918Link" style="color:#44475b ; font-family: 'Roboto', system-ui;">Mutual Fund Calculators</h4>
+                            <p class="cur-po clrText ss918Element ss918Link">SBI SIP Calculator</p>
+                            <p class="cur-po clrText ss918Element ss918Link">Step Up SIP Calculator</p>
+                            <p class="cur-po clrText ss918Element ss918Link">HDFC SIP Calculator</p>
+                            <p class="cur-po clrText ss918Element ss918Link">Canara Bank SIP Calculator</p>
+                            <p class="cur-po clrText ss918Element ss918Link">Axis Bank SIP Calculator</p>
+                            <p class="cur-po clrText ss918Element ss918Link">PNB SIP Calculator</p>
+                            <p class="cur-po clrText ss918Element ss918Link">BOI SIP Calculator</p>
+                            <p class="cur-po clrText ss918Element ss918Link">Kotak Bank SIP Calculator</p>
+                            <p class="cur-po clrText ss918Element ss918Link">Union Bank SIP Calculator</p>
+                            <p class="cur-po clrText ss918Element ss918Link">IDBI SIP Calculator</p>
+                            <p class="cur-po clrText ss918Element ss918Link">PGIM SIP Calculator</p>
+                            <p class="cur-po clrText ss918Element ss918Link">ELSS Calculator</p>
+                          </div>
+                        </div>
+                </div>
+               </div>
+            </div>
+        <div class="footer">
+
+       
+        <div class="footer-column">
+          <p style="margin-left: 0.5em;"><img width="150em" src="https://assets-netstorage.groww.in/web-assets/billion_groww_desktop/prod/_next/static/media/logo-light-groww.d72ab2aa.svg" alt=""></p>
+        <p style="margin-left: 1em;">Vaishnavi Tech Park, 3rd & 4th Floor
+
+            Sarjapur Main Road, Bellandur
+            
+            Bengaluru – 560103
+            <br><br>
+            Contact Us <br></p>
+            <div class="valign-wrapper fm77SocialMediaLinks" style="display: flex;"><div class="fm77IconsMargin"><a href="https://www.facebook.com/growwapp" class="col l12" target="_blank" rel="nofollow noopener noreferrer"><div class="lazyload-wrapper "><img class="" src="//assets-netstorage.groww.in/web-assets/billion_groww_desktop/prod/_next/static/media/fb_icon_groww.30532469.svg" width="40" height="30" alt="Groww FB Page" loading="lazy"></div></a></div><div class="fm77IconsMargin"><a href="https://twitter.com/_groww" class="col l12" target="_blank" rel="nofollow noopener noreferrer"><div class="lazyload-wrapper "><img class="" src="//assets-netstorage.groww.in/web-assets/billion_groww_desktop/prod/_next/static/media/twitter_icon_groww.43dee78a.svg" width="40" height="30" alt="Groww Twitter Page" loading="lazy"></div></a></div><div class="fm77IconsMargin"><a href="http://bit.ly/2rjkBHu" class="col l12" target="_blank" rel="nofollow noopener noreferrer"><div class="lazyload-wrapper "><img class="" src="//assets-netstorage.groww.in/web-assets/billion_groww_desktop/prod/_next/static/media/yt_icon_groww.ebd07f19.svg" width="40" height="30" alt="Youtube Groww" loading="lazy"></div></a></div><div class="fm77IconsMargin"><a href="https://www.instagram.com/groww_official/" class="col l12" target="_blank" rel="nofollow noopener noreferrer"><div class="lazyload-wrapper "><img class="" src="//assets-netstorage.groww.in/web-assets/billion_groww_desktop/prod/_next/static/media/instagram_icon_groww.f8c7d006.svg" width="40" height="30" alt="Groww Instagram Page" loading="lazy"></div></a></div><div class="fm77IconsMargin"><a href="https://in.linkedin.com/company/groww.in" class="col l12" target="_blank" rel="nofollow noopener noreferrer"><div class="lazyload-wrapper "><img class="" src="//assets-netstorage.groww.in/web-assets/billion_groww_desktop/prod/_next/static/media/linkedin_icon_groww.a0c17280.svg" width="40" height="30" alt="Groww Linkedin Page" loading="lazy"></div></a></div><div class="fm77IconsMargin"><a href="http://t.me/GrowwHQ" class="col l12" target="_blank" rel="nofollow noopener noreferrer"><div class="lazyload-wrapper "><img class="" src="//assets-netstorage.groww.in/web-assets/billion_groww_desktop/prod/_next/static/media/telegram_icon_groww.d144db3f.svg" width="40" height="30" alt="Groww Telegram Page" loading="lazy"></div></a></div></div>
+        </div>
+        <div class="footer-column">
+          <h3>PRODUCTS</h3>
+          <p>Stocks</p>
+          <p>Futures &amp; Options</p>
+          <p>Mutual Funds</p>
+          <p>US Stocks</p>
+          <p>Credit</p>
+        </div>
+        <div class="footer-column">
+          <h3>GROWW</h3>
+          <p>About Us</p>
+          <p>Pricing</p>
+          <p>Blog</p>
+          <p>Media &amp; Press</p>
+          <p>Careers</p>
+          <p>Help and Support</p>
+        </div>
+        <div class="footer-column">
+          <h3>QUICK LINKS</h3>
+          <p>AMC Mutual Funds</p>
+          <p>Calculators</p>
+          <p>Glossary</p>
+          <p>Open Demat Account</p>
+          <p>Groww Digest</p>
+          <p>Sitemap</p>
+        </div>
+        
+    
+    </div>
+  
+      
+    </div>
+    <div class="col l12 fm77CopyRightDiv" style="background-color: #1e2232; color: white;"><div class="col l6 fm77CompanyName valign-wrapper">ⓒ&nbsp;2016-2023 Groww. All rights reserved, Built with <span class="fm77HeartImg">♥</span>in India</div><div class="col l6 valign-wrapper fm77GPlayDiv"><div class="fm77PlayStoreDiv clearfix"><div><a href="https://app.groww.in/v3cO/icub3jte" class="" target="_blank"><div class="lazyload-wrapper "><img class="" src="//assets-netstorage.groww.in/web-assets/billion_groww_desktop/prod/_next/static/media/app-store-logo.0958106d.svg" width="147" height="45" alt="Download Groww App on apple store" loading="lazy"></div></a></div></div><div class="fm77PlayStoreDiv clearfix"><div><a href="https://app.groww.in/v3cO/icub3jte" class="" target="_blank"><div class="lazyload-wrapper "><img class="" src="//assets-netstorage.groww.in/web-assets/billion_groww_desktop/prod/_next/static/media/google-play-badge.e21ffdaa.svg" width="147" height="45" alt="Download Groww App on play store" loading="lazy"></div></a></div></div></div></div>
+
+    <footer class="groww-footer">
+      <div class="container420">
+        <div class="row">
+          <div class="col l12 fm77Container">
+            <div class="fw500 valign-wrapper vspace-between fm77FooterSubHeading" style="display: flex; justify-content: space-between; ">
+              <span style="margin-top: 40px;">MOST POPULAR ON GROWW</span>
+              <span  style="margin-top: 40px; margin-right: 20px;">VERSION - 4.0.1</span>
+            </div>
+            <div class="fw500 fm77FooterSubHeading fs14" style="margin-top: 25px;">
+              STOCK MARKET INDICES:
+              <span><a class="fs14 fm77MfStyle" target="_self" href="/indices/sp-bse-sensex">S&P BSE SENSEX</a></span>
+              | <span><a class="fs14 fm77MfStyle" target="_self" href="/indices/sp-bse">S&P BSE 100</a></span>
+              | <span><a class="fs14 fm77MfStyle" target="_self" href="/indices/nifty-218500">NIFTY 100</a></span>
+              | <span><a class="fs14 fm77MfStyle" target="_self" href="/indices/nifty">NIFTY 50</a></span>
+              | <span><a class="fs14 fm77MfStyle" target="_self" href="/indices/nifty-midcap">NIFTY MIDCAP 100</a></span>
+              | <span><a class="fs14 fm77MfStyle" target="_self" href="/indices/nifty-bank">NIFTY BANK</a></span>
+              | <span><a class="fs14 fm77MfStyle" target="_self" href="/indices/nifty-next">NIFTY NEXT 50</a></span>
+            </div>
+            <div class="fw500 fm77FooterSubHeading fs14" style="margin-top: 15px;">
+              POPULAR MUTUAL FUNDS:
+              <span><a class="fs14 fm77MfStyle" target="_self" href="/mutual-funds/axis-equity-fund-direct-growth">Axis Bluechip Fund</a></span>
+              | <span><a class="fs14 fm77MfStyle" target="_self" href="/mutual-funds/motilal-oswal-s-p-500-index-fund-direct-growth">Motilal Oswal S&P 500 Index Fund</a></span>
+              | <span><a class="fs14 fm77MfStyle" target="_self" href="/mutual-funds/parag-parikh-long-term-value-fund-direct-growth">Parag Parikh Long Term Equity Fund</a></span>
+              | <span><a class="fs14 fm77MfStyle" target="_self" href="/mutual-funds/sbi-small-midcap-fund-direct-growth">SBI Small Cap Fund</a></span>
+              | <span><a class="fs14 fm77MfStyle" target="_self" href="/mutual-funds/hdfc-growth-fund-direct-growth">HDFC Balanced Advantage Fund</a></span>
+              | <span><a class="fs14 fm77MfStyle" target="_self" href="/mutual-funds/axis-long-term-equity-fund-direct-growth">Axis Long Term Equity Fund</a></span>
+              | <span><a class="fs14 fm77MfStyle" target="_self" href="/mutual-funds/uti-nifty-index-fund-direct-growth">UTI Nifty Index Fund</a></span>
+              | <span><a class="fs14 fm77MfStyle" target="_self" href="/mutual-funds/axis-midcap-fund-direct-growth">Axis Midcap Fund</a></span>
+              | <span><a class="fs14 fm77MfStyle" target="_self" href="/mutual-funds/sbi-blue-chip-fund-direct-growth">SBI Bluechip Fund</a></span>
+              | <span><a class="fs14 fm77MfStyle" target="_self" href="/mutual-funds/mirae-asset-emerging-bluechip-fund-direct-growth">Mirae Asset Emerging Bluechip Fund</a></span>
+            </div>
+            <div class="fw500 fm77FooterSubHeading fs14" style="margin-top: 15px;">
+              MUTUAL FUND COMPANIES:
+              <span><a class="fs14 fm77MfStyle" target="_self" href="/mutual-fund-companies/icici-prudential">ICICI Prudential</a></span>
+              | <span><a class="fs14 fm77MfStyle" target="_self" href="/mutual-fund-companies/hdfc">HDFC</a></span>
+              | <span><a class="fs14 fm77MfStyle" target="_self" href="/mutual-fund-companies/nippon-india">Nippon India</a></span>
+              | <span><a class="fs14 fm77MfStyle" target="_self" href="/mutual-fund-companies/aditya-birla-sun-life">Aditya Birla Sun Life</a></span>
+              | <span><a class="fs14 fm77MfStyle" target="_self" href="/mutual-fund-companies/sbi">SBI</a></span>
+              | <span><a class="fs14 fm77MfStyle" target="_self" href="/mutual-fund-companies/uti">UTI</a></span>
+              | <span><a class="fs14 fm77MfStyle" target="_self" href="/mutual-fund-companies/franklin-templeton">Franklin Templeton</a></span>
+              | <span><a class="fs14 fm77MfStyle" target="_self" href="/mutual-fund-companies/kotak-mahindra">Kotak Mahindra</a></span>
+              | <span><a class="fs14 fm77MfStyle" target="_self" href="/mutual-fund-companies/idfc">IDFC</a></span>
+              | <span><a class="fs14 fm77MfStyle" target="_self" href="/mutual-fund-companies/dsp">DSP</a></span>
+              | <span><a class="fs14 fm77MfStyle" target="_self" href="/mutual-fund-companies/axis">Axis</a></span>
+              | <span><a class="fs14 fm77MfStyle" target="_self" href="/mutual-fund-companies/tata">Tata</a></span>
+              | <span><a class="fs14 fm77MfStyle" target="_self" href="/mutual-fund-companies/sundaram">Sundaram</a></span>
+              | <span><a class="fs14 fm77MfStyle" target="_self" href="/mutual-fund-companies/l&t">L&amp;T</a></span>
+            </div>
+            <div class="fw500 fm77FooterSubHeading fs14" style="margin-top: 15px;">
+              GROW TOOLS:
+              <span><a class="fs14 fm77MfStyle" target="_self" href="/tools/mutual-fund-calculator">Mutual Fund Calculator</a></span>
+              | <span><a class="fs14 fm77MfStyle" target="_self" href="/tools/sip-calculator">SIP Calculator</a></span>
+              | <span><a class="fs14 fm77MfStyle" target="_self" href="/tools/emi-calculator">EMI Calculator</a></span>
+              | <span><a class="fs14 fm77MfStyle" target="_self" href="/tools/fixed-deposit-calculator">Fixed Deposit Calculator</a></span>
+              | <span><a class="fs14 fm77MfStyle" target="_self" href="/tools/advance-tax-calculator">Advance Tax Calculator</a></span>
+              | <span><a class="fs14 fm77MfStyle" target="_self" href="/tools/lump-sum-calculator">Lumpsum Calculator</a></span>
+              | <span><a class="fs14 fm77MfStyle" target="_self" href="/tools/fd-vs-rd-calculator">FD vs RD Calculator</a></span>
+            </div>
+            <div class="fw500 clrSubText fs14" style="margin-top: 25px; margin-left: 1.5em;">
+              OTHERS: &nbsp;
+              <span><a href="https://www1.nseindia.com/" class="fs14 fm77FooterDisclaimerLink clrSubText" target="_blank" rel="nofollow noreferrer">NSE</a></span>
+              &nbsp;|&nbsp;
+              <span><a href="https://www.bseindia.com/" class="fs14 fm77FooterDisclaimerLink clrSubText" target="_blank" rel="nofollow noreferrer">BSE</a></span>
+              &nbsp;|&nbsp;
+              <span><a href="https://groww.in/terms-and-conditions/" class="fs14 fm77FooterDisclaimerLink clrSubText" target="_blank">Terms and Conditions</a></span>
+              &nbsp;|&nbsp;
+              <span><a href="https://groww.in/p/policies/" class="fs14 fm77FooterDisclaimerLink clrSubText" target="_blank">Policies and Procedures</a></span>
+              &nbsp;|&nbsp;
+              <span><a class="fs14 fm77FooterDisclaimerLink clrSubText" target="_self" href="/regulatory-and-other-information">Regulatory &amp; Other Info</a></span>
+              &nbsp;|&nbsp;
+              <span><a href="https://groww.in/privacy-policy/" class="fs14 fm77FooterDisclaimerLink clrSubText" target="_blank">Privacy Policy</a></span>
+              &nbsp;|&nbsp;
+              <span><a href="https://groww.in/p/disclosure/" class="fs14 fm77FooterDisclaimerLink clrSubText" target="_blank">Disclosure</a></span>
+              &nbsp;|&nbsp;
+              <span><a class="fs14 fm77FooterDisclaimerLink clrSubText" target="_self" href="/p/bug-bounty">Bug Bounty</a></span>
+              &nbsp;|&nbsp;
+              <span><a class="fs14 fm77FooterDisclaimerLink clrSubText" target="_self" href="/download-forms">Download Forms</a></span>
+              &nbsp;|&nbsp;
+              <span><a class="fs14 fm77FooterDisclaimerLink clrSubText" target="_self" href="/investor-charters-and-grievance">Investor Charter and Grievance</a></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    
+
+
+    
+
+    <script>
+
+const shareButton = document.querySelector('.breadcrumb-share');
+const shareText = shareButton.querySelector('.breadcrumb-text');
+const shareIcon = shareButton.querySelector('.bi-share-fill');
+const closeButtonIcon = '<i class="bi bi-x-lg"></i>';
+const shareButtonIcon = '<i class="bi bi-share-fill"></i>';
+
+shareButton.addEventListener('click', function() {
+  if (shareButton.classList.contains('shared')) {
+    // Hide social icons and show share name and icon
+    shareButton.classList.remove('shared');
+    shareButton.innerHTML = shareButtonIcon + ' SHARE';
+    // Perform any other animations or actions
+  } else {
+    // Show social icons and hide share name and icon
+    shareButton.classList.add('shared');
+    shareButton.innerHTML = closeButtonIcon + ' CLOSE';
+    // Perform any other animations or actions
+  }
+});
+
+
+
+
+
+
+      const collapsibleHeaders = document.querySelectorAll(
+        ".collapsible-header"
+      );
+
+      collapsibleHeaders.forEach((header) => {
+        header.addEventListener("click", () => {
+          header.parentElement.classList.toggle("collapsible-open");
+        });
+      });
+
+     
+
+      
+  var slider = document.getElementById("myRange");
+  var output = document.getElementById("demo");
+  output.innerHTML = slider.value;
+  
+  slider.oninput = function() {
+    output.innerHTML = this.value;
+  };
+  var slider1 = document.getElementById("myRange1");
+  var output1 = document.getElementById("demo1");
+  output1.innerHTML = slider1.value;
+  
+  slider1.oninput = function() {
+    output1.innerHTML = this.value;
+  };
+  var slider2 = document.getElementById("myRange2");
+  var output2 = document.getElementById("demo2");
+  output2.innerHTML = slider2.value;
+  
+  slider2.oninput = function() {
+    output2.innerHTML = this.value;}
+
+    var slider = document.getElementById("myRange");
+  var output = document.getElementById("demo");
+  output.innerHTML = slider.value;
+
+  slider.oninput = function() {
+    output.innerHTML = this.value;
+    updateValues();
+  };
+
+  var slider1 = document.getElementById("myRange1");
+  var output1 = document.getElementById("demo1");
+  output1.innerHTML = slider1.value;
+
+  slider1.oninput = function() {
+    output1.innerHTML = this.value;
+    updateValues();
+  };
+
+  var slider2 = document.getElementById("myRange2");
+  var output2 = document.getElementById("demo2");
+  output2.innerHTML = slider2.value;
+
+  slider2.oninput = function() {
+    output2.innerHTML = this.value;
+    updateValues();
+  };
+
+ 
+
+
+
+
+//   function updateValues() {
+//   // ... your existing code ...
+//   var investedAmount = parseInt(slider.value);
+//     var estReturns = parseInt(slider1.value);
+//     var timePeriod = parseInt(slider2.value);
+//     var totalValue = investedAmount + (investedAmount * estReturns / 100) * timePeriod;
+
+//     var investedAmountText = "₹" + investedAmount.toLocaleString();
+//     var estReturnsText = "₹" + (investedAmount * estReturns / 100).toLocaleString();
+//     var totalValueText = "₹" + totalValue.toLocaleString();
+
+//     document.getElementById("investedAmount").innerHTML = investedAmountText;
+//     document.getElementById("estReturns").innerHTML = estReturnsText;
+//     document.getElementById("totalValue").innerHTML = totalValueText;
+//   // Create a data array for the pie chart
+
+
+
+// }
+// updateValues();
+
+
+
+var slider = document.getElementById("myRange");
+var slider1 = document.getElementById("myRange1");
+var slider2 = document.getElementById("myRange2");
+
+function updateValues() {
+  var investedAmount = parseInt(slider.value);
+  var estReturns = parseInt(slider1.value);
+  var timePeriod = parseInt(slider2.value);
+  var totalValue = investedAmount + (investedAmount * estReturns / 100) * timePeriod;
+
+  var investedAmountText = "₹" + investedAmount.toLocaleString();
+  var estReturnsText = "₹" + (investedAmount * estReturns / 100).toLocaleString();
+  var totalValueText = "₹" + totalValue.toLocaleString();
+
+  document.getElementById("investedAmount").innerHTML = investedAmountText;
+  document.getElementById("estReturns").innerHTML = estReturnsText;
+  document.getElementById("totalValue").innerHTML = totalValueText;
+
+  var maxInvestedAmount = 100000; // Maximum investment amount
+  var maxColorPercentage = 80; // Maximum percentage for the #36a2eb color
+
+  var colorPercentage = Math.round((investedAmount / maxInvestedAmount) * maxColorPercentage);
+
+  var data = {
+    datasets: [{
+      data: [colorPercentage, 100 - colorPercentage],
+      backgroundColor: [totalValue > investedAmount ? "#36a2eb" : "#ff6361", "#98a4ff"]
+    }]
+  };
+
+  chart.data = data;
+  chart.update();
+}
+
+slider.addEventListener("input", updateValues);
+slider1.addEventListener("input", updateValues);
+slider2.addEventListener("input", updateValues);
+
+var data = {
+  datasets: [{
+    data: [50, 50],
+    backgroundColor: ["#36a2eb", "#98a4ff"]
+  }]
+};
+
+var options = {
+  cutout: "60%",
+  legend: {
+    display: false
+  }
+};
+
+var chart = new Chart(document.getElementById("pieChart"), {
+  type: "doughnut",
+  data: data,
+  options: options
+});
+
+updateValues();
+
+
+    
+
+    </script>
+  </body>
+</html>
